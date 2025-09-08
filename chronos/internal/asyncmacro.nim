@@ -381,7 +381,7 @@ proc asyncSingleProc(prc, params: NimNode): NimNode {.compileTime.} =
                 nnkPragmaExpr.newTree(
                   resultIdent,
                   nnkPragma.newTree(ident "used")),
-                baseType, newEmptyNode())
+                baseType, newCall(bindSym"zeroDefault", nnkTypeOfExpr.newTree(baseType)))
                 ),
               quote do: {.pop.},
             )
