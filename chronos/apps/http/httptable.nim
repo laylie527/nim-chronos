@@ -88,7 +88,7 @@ proc getLastString*(ht: HttpTables, key: string): string =
   ##
   ## If there multiple headers with the same name ``key`` the value of last
   ## encountered header will be returned.
-  var default: seq[string]
+  var default = default seq[string]
   let item = ht.table.getOrDefault(key.toLowerAscii(), default)
   if len(item) == 0:
     ""
